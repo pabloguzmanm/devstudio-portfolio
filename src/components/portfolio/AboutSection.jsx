@@ -1,3 +1,4 @@
+// src/components/portfolio/AboutSection.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Target, Rocket } from 'lucide-react';
@@ -162,13 +163,13 @@ export default function AboutSection() {
           </motion.div>
         </div>
 
-        {/* Stats - Premios eliminados */}
+        {/* Stats - RESPONSIVE PERFECTO */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {stats.map((stat, index) => (
             <motion.div
