@@ -32,7 +32,7 @@ export default function Portfolio() {
   const scrollToSection = (id) => {
     const element = document.getElementById(id.replace('#', ''));
     element?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false);
+    setIsMenuOpen(false); // Cierra menú al navegar
   };
 
   const scrollToTop = () => {
@@ -88,6 +88,7 @@ export default function Portfolio() {
                 DevStudio
               </motion.div>
 
+              {/* Desktop Menu */}
               <div className="hidden lg:flex items-center gap-1">
                 {navItems.map((item) => (
                   <motion.a
@@ -107,44 +108,81 @@ export default function Portfolio() {
                 ))}
               </div>
 
+              {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden p-2 rounded-lg hover:bg-white/10"
+                className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+                aria-label="Toggle menu"
               >
                 <AnimatePresence mode="wait">
-                  {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                  {isMenuOpen ? (
+                    <motion.div
+                      key="close"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <X className="w-6 h-6" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="menu"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Menu className="w-6 h-6" />
+                    </motion.div>
+                  )}
                 </AnimatePresence>
               </button>
             </div>
           </div>
 
+          {/* Mobile Menu + Overlay */}
           <AnimatePresence>
             {isMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="lg:hidden border-t border-white/10 bg-gray-900/95 backdrop-blur-xl"
-              >
-                <div className="px-4 py-4 space-y-2">
-                  {navItems.map((item) => (
-                    <motion.a
-                      key={item.href}
-                      href={item.href}
-                      onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
-                      className="block px-4 py-3 rounded-lg text-gray-300 hover:bg-white/10 hover:text-white"
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      {item.label}
-                    </motion.a>
-                  ))}
-                </div>
-              </motion.div>
+              <>
+                {/* Overlay oscuro */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                />
+
+                {/* Menú móvil */}
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="fixed top-16 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-xl border-t border-white/10 shadow-2xl lg:hidden"
+                >
+                  <div className="px-4 py-6 space-y-2">
+                    {navItems.map((item) => (
+                      <motion.a
+                        key={item.href}
+                        href={item.href}
+                        onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                        className="block px-4 py-3 rounded-lg text-gray-300 hover:bg-white/10 hover:text-white transition-all"
+                        whileHover={{ x: 8 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        {item.label}
+                      </motion.a>
+                    ))}
+                  </div>
+                </motion.div>
+              </>
             )}
           </AnimatePresence>
         </motion.nav>
 
-        {/* Contenido */}
+        {/* Contenido principal */}
         <main className="relative z-10 pt-16">
           <HeroSection />
           <AboutSection />
