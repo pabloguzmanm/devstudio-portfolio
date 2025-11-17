@@ -1,26 +1,29 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: 'Ana García',
-    role: 'CEO, TechStartup',
-    content: 'Increíble trabajo. Transformaron completamente nuestra presencia digital y duplicaron nuestras conversiones en solo 3 meses.',
-    rating: 5
+    name: "Ana García",
+    role: "CEO, TechStartup",
+    content:
+      "Increíble trabajo. Transformaron completamente nuestra presencia digital y duplicaron nuestras conversiones en solo 3 meses.",
+    rating: 5,
   },
   {
-    name: 'Carlos Méndez',
-    role: 'Director de Marketing, E-Shop',
-    content: 'Profesionales excepcionales. La plataforma que desarrollaron superó todas nuestras expectativas en funcionalidad y diseño.',
-    rating: 5
+    name: "Carlos Méndez",
+    role: "Director de Marketing, E-Shop",
+    content:
+      "Gran trabajo. La plataforma que desarrollaron superó todas nuestras expectativas en funcionalidad y diseño.",
+    rating: 5,
   },
   {
-    name: 'Laura Rodríguez',
-    role: 'Fundadora, FitLife App',
-    content: 'Un equipo brillante. Entendieron nuestra visión perfectamente y entregaron una app móvil que nuestros usuarios adoran.',
-    rating: 5
-  }
+    name: "Laura Rodríguez",
+    role: "Fundadora, FitLife App",
+    content:
+      "Entendieron nuestra visión perfectamente y entregaron una app móvil que nuestros usuarios adoran.",
+    rating: 5,
+  },
 ];
 
 const container = {
@@ -29,21 +32,21 @@ const container = {
     opacity: 1,
     transition: {
       staggerChildren: 0.2,
-      delayChildren: 0.1
-    }
-  }
+      delayChildren: 0.1,
+    },
+  },
 };
 
 const item = {
   hidden: { opacity: 0, x: -30 },
-  show: { 
-    opacity: 1, 
+  show: {
+    opacity: 1,
     x: 0,
     transition: {
       duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
-  }
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
 };
 
 export default function TestimonialsSection() {
@@ -63,7 +66,8 @@ export default function TestimonialsSection() {
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            La satisfacción de nuestros clientes es nuestra mejor carta de presentación
+            La satisfacción de nuestros clientes es nuestra mejor carta de
+            presentación
           </p>
         </motion.div>
 
@@ -78,15 +82,15 @@ export default function TestimonialsSection() {
             <motion.div
               key={index}
               variants={item}
-              whileHover={{ 
+              whileHover={{
                 y: -8,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className="group relative"
             >
               {/* Gradient glow on hover */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
-              
+
               <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 h-full transition-all duration-300 group-hover:border-white/20">
                 {/* Quote icon */}
                 <motion.div
@@ -107,7 +111,10 @@ export default function TestimonialsSection() {
                       initial={{ opacity: 0, scale: 0 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: index * 0.2 + i * 0.1, duration: 0.3 }}
+                      transition={{
+                        delay: index * 0.2 + i * 0.1,
+                        duration: 0.3,
+                      }}
                     >
                       <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                     </motion.div>

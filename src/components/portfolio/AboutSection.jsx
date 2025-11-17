@@ -1,48 +1,48 @@
 // src/components/portfolio/AboutSection.jsx
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Users, Target, Rocket } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Users, Target, Rocket } from "lucide-react";
 
 const stats = [
-  { icon: Users, label: 'Clientes Felices', value: '200+' },
-  { icon: Rocket, label: 'Proyectos Completados', value: '350+' },
-  { icon: Target, label: 'Años de Experiencia', value: '10+' }
+  { icon: Users, label: "Clientes Felices", value: "80+" },
+  { icon: Rocket, label: "Proyectos Completados", value: "100+" },
+  { icon: Target, label: "Años de Experiencia", value: "5+" },
 ];
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
-  show: { 
-    opacity: 1, 
+  show: {
+    opacity: 1,
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
-  }
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
 };
 
 const fadeInLeft = {
   hidden: { opacity: 0, x: -40 },
-  show: { 
-    opacity: 1, 
+  show: {
+    opacity: 1,
     x: 0,
     transition: {
       duration: 0.7,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
-  }
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
 };
 
 const fadeInRight = {
   hidden: { opacity: 0, x: 40 },
-  show: { 
-    opacity: 1, 
+  show: {
+    opacity: 1,
     x: 0,
     transition: {
       duration: 0.7,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
-  }
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
 };
 
 const staggerContainer = {
@@ -50,9 +50,9 @@ const staggerContainer = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15
-    }
-  }
+      staggerChildren: 0.15,
+    },
+  },
 };
 
 export default function AboutSection() {
@@ -72,7 +72,8 @@ export default function AboutSection() {
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Un equipo apasionado dedicado a crear experiencias digitales excepcionales
+            Un equipo apasionado dedicado a crear experiencias digitales
+            excepcionales
           </p>
         </motion.div>
 
@@ -98,10 +99,11 @@ export default function AboutSection() {
                   Nuestra Misión
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Transformamos ideas en soluciones digitales innovadoras que impulsan 
-                  el crecimiento de nuestros clientes. Con más de una década de experiencia, 
-                  combinamos creatividad, tecnología de vanguardia y un profundo entendimiento 
-                  del negocio para entregar resultados excepcionales.
+                  Transformamos ideas en soluciones digitales innovadoras que
+                  impulsan el crecimiento de nuestros clientes. Con más de una
+                  década de experiencia, combinamos creatividad, tecnología de
+                  vanguardia y un profundo entendimiento del negocio para
+                  entregar resultados excepcionales.
                 </p>
               </div>
             </motion.div>
@@ -119,9 +121,10 @@ export default function AboutSection() {
                   Nuestra Visión
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Ser el socio tecnológico de referencia para empresas que buscan innovar 
-                  y destacar en el mundo digital. Nos esforzamos por estar siempre a la 
-                  vanguardia de las tendencias tecnológicas y las mejores prácticas de la industria.
+                  Ser el socio tecnológico de referencia para empresas que
+                  buscan innovar y destacar en el mundo digital. Nos esforzamos
+                  por estar siempre a la vanguardia de las tendencias
+                  tecnológicas y las mejores prácticas de la industria.
                 </p>
               </div>
             </motion.div>
@@ -147,7 +150,7 @@ export default function AboutSection() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
-              
+
               {/* Floating badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0, rotate: -10 }}
@@ -175,14 +178,14 @@ export default function AboutSection() {
             <motion.div
               key={index}
               variants={fadeInUp}
-              whileHover={{ 
+              whileHover={{
                 y: -8,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className="group relative"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-cyan-500 rounded-xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-              
+
               <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center transition-all duration-300 group-hover:border-white/20">
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
@@ -193,7 +196,7 @@ export default function AboutSection() {
                 >
                   <stat.icon className="w-6 h-6 text-white" />
                 </motion.div>
-                
+
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -203,7 +206,7 @@ export default function AboutSection() {
                 >
                   {stat.value}
                 </motion.div>
-                
+
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
