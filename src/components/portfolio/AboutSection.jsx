@@ -139,6 +139,18 @@ export default function AboutSection() {
             className="relative"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-green-500 via-cyan-500 to-blue-500 rounded-2xl blur-3xl opacity-20" />
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+              className="relative rounded-2xl overflow-hidden border border-white/20"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+                alt="Team collaboration"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
+            </motion.div>
           </motion.div>
         </div>
 
