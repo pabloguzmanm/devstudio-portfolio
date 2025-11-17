@@ -129,41 +129,6 @@ export default function AboutSection() {
               </div>
             </motion.div>
           </motion.div>
-
-          {/* Right image */}
-          <motion.div
-            variants={fadeInRight}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-100px" }}
-            className="relative"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-green-500 via-cyan-500 to-blue-500 rounded-2xl blur-3xl opacity-20" />
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="relative rounded-2xl overflow-hidden border border-white/20"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
-                alt="Team collaboration"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
-
-              {/* Floating badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0, rotate: -10 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="absolute bottom-8 right-8 bg-gradient-to-r from-green-600 to-cyan-600 rounded-2xl p-6 shadow-2xl"
-              >
-                <div className="text-3xl font-bold text-white">10+</div>
-                <div className="text-sm text-white/80">Años</div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
         </div>
 
         {/* Stats - RESPONSIVE PERFECTO */}
