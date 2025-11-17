@@ -129,6 +129,17 @@ export default function AboutSection() {
               </div>
             </motion.div>
           </motion.div>
+
+          {/* Right image */}
+          <motion.div
+            variants={fadeInRight}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-green-500 via-cyan-500 to-blue-500 rounded-2xl blur-3xl opacity-20" />
+          </motion.div>
         </div>
 
         {/* Stats - RESPONSIVE PERFECTO */}
