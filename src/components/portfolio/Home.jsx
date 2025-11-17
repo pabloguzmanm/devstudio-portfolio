@@ -1,50 +1,50 @@
 // src/components/portfolio/Home.jsx
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import HeroSection from './HeroSection';
-import ServicesSection from './ServicesSection';
-import SkillsSection from './SkillsSection';
-import ProjectsSection from './ProjectsSection';
-import AboutSection from './AboutSection';
-import TestimonialsSection from './TestimonialsSection';
-import ContactSection from './ContactSection';
-import { Button } from '@/components/ui/button';
-import { ArrowUp, Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Toaster } from 'sonner';
+import React, { useEffect, useState } from "react";
+import HeroSection from "./HeroSection";
+import ServicesSection from "./ServicesSection";
+import SkillsSection from "./SkillsSection";
+import ProjectsSection from "./ProjectsSection";
+import AboutSection from "./AboutSection";
+import TestimonialsSection from "./TestimonialsSection";
+import ContactSection from "./ContactSection";
+import { Button } from "@/components/ui/button";
+import { ArrowUp, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Toaster } from "sonner";
 
 const navItems = [
-  { label: 'Inicio', href: '#hero' },
-  { label: 'Sobre', href: '#about' },
-  { label: 'Servicios', href: '#services' },
-  { label: 'Habilidades', href: '#skills' },
-  { label: 'Proyectos', href: '#projects' },
-  { label: 'Testimonios', href: '#testimonials' },
-  { label: 'Contacto', href: '#contact' },
+  { label: "Inicio", href: "#hero" },
+  { label: "Sobre", href: "#about" },
+  { label: "Servicios", href: "#services" },
+  { label: "Habilidades", href: "#skills" },
+  { label: "Proyectos", href: "#projects" },
+  { label: "Testimonios", href: "#testimonials" },
+  { label: "Contacto", href: "#contact" },
 ];
 
 export default function Portfolio() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState("hero");
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id.replace('#', ''));
-    element?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(id.replace("#", ""));
+    element?.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false); // Cierra menú al navegar
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500);
 
-      const sections = navItems.map(i => i.href.slice(1));
-      let current = 'hero';
+      const sections = navItems.map((i) => i.href.slice(1));
+      let current = "hero";
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el && el.getBoundingClientRect().top <= 150) current = section;
@@ -52,8 +52,8 @@ export default function Portfolio() {
       setActiveSection(current);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -94,11 +94,14 @@ export default function Portfolio() {
                   <motion.a
                     key={item.href}
                     href={item.href}
-                    onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.href);
+                    }}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                       activeSection === item.href.slice(1)
-                        ? 'bg-white/10 text-white border border-white/20'
-                        : 'text-gray-300 hover:text-white hover:bg-white/5'
+                        ? "bg-white/10 text-white border border-white/20"
+                        : "text-gray-300 hover:text-white hover:bg-white/5"
                     }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -167,7 +170,10 @@ export default function Portfolio() {
                       <motion.a
                         key={item.href}
                         href={item.href}
-                        onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollToSection(item.href);
+                        }}
                         className="block px-4 py-3 rounded-lg text-gray-300 hover:bg-white/10 hover:text-white transition-all"
                         whileHover={{ x: 8 }}
                         whileTap={{ scale: 0.98 }}
@@ -189,7 +195,7 @@ export default function Portfolio() {
           <ServicesSection />
           <SkillsSection />
           <ProjectsSection />
-          <TestimonialsSection />
+          {/*<TestimonialsSection />*/}
           <ContactSection />
         </main>
 
@@ -217,8 +223,11 @@ export default function Portfolio() {
         <footer className="relative border-t border-white/10 py-10 mt-20">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <p className="text-gray-400 text-sm">
-              © 2025 <span className="font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">DevStudio</span>.
-              Experiencias digitales que inspiran.
+              © 2025{" "}
+              <span className="font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                DevStudio
+              </span>
+              . Experiencias digitales que inspiran.
             </p>
           </div>
         </footer>
