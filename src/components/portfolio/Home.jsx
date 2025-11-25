@@ -7,7 +7,6 @@ import ServicesSection from "./ServicesSection";
 import SkillsSection from "./SkillsSection";
 import ProjectsSection from "./ProjectsSection";
 import AboutSection from "./AboutSection";
-import TestimonialsSection from "./TestimonialsSection";
 import ContactSection from "./ContactSection";
 import { Button } from "@/components/ui/button";
 import { ArrowUp, Menu, X } from "lucide-react";
@@ -20,7 +19,6 @@ const navItems = [
   { label: "Servicios", href: "#services" },
   { label: "Habilidades", href: "#skills" },
   { label: "Proyectos", href: "#projects" },
-  { label: "Testimonios", href: "#testimonials" },
   { label: "Contacto", href: "#contact" },
 ];
 
@@ -195,7 +193,6 @@ export default function Portfolio() {
           <ServicesSection />
           <SkillsSection />
           <ProjectsSection />
-          {/*<TestimonialsSection />*/}
           <ContactSection />
         </main>
 
